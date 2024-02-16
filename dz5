@@ -1,0 +1,35 @@
+class Parent1:
+    def __init__(self):
+        self.attr1 = "Attribute from Parent1"
+
+    def method1(self):
+        return "Method from Parent1"
+
+
+class Parent2:
+    def __init__(self):
+        self.attr2 = "Attribute from Parent2"
+
+    def method2(self):
+        return "Method from Parent2"
+
+
+class ComplexClass(Parent1, Parent2):
+    def __init__(self):
+        Parent1.__init__(self)
+        Parent2.__init__(self)
+        self.attr3 = "Attribute specific to ComplexClass"
+
+    def method3(self):
+        return "Method specific to ComplexClass"
+
+
+
+complex_obj = ComplexClass()
+print(complex_obj.attr1)
+print(complex_obj.attr2)
+print(complex_obj.attr3)
+
+print(complex_obj.method1())
+print(complex_obj.method2())
+print(complex_obj.method3())
