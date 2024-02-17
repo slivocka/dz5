@@ -1,0 +1,26 @@
+import random
+
+class NumberEncryptor:
+    def __init__(self):
+        pass
+    
+    def _encrypt(self, number):
+        operation = random.choice(['+', '-', '*', '/'])
+        operand = random.randint(1, 10)
+        if operation == '+':
+            result = number + operand
+        elif operation == '-':
+            result = number - operand
+        elif operation == '*':
+            result = number * operand
+        else:
+            result = number / operand if operand != 0 else self._encrypt(number)
+        return result, operation, operand
+
+    def __repr__(self):
+        number = random.randint(1, 100)
+        result, operation, operand = self._encrypt(number)
+        return f"{number} {operation} {operand} = {result}"
+
+encryptor = NumberEncryptor()
+print(encryptor)
